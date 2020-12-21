@@ -1,29 +1,20 @@
-# VMP.NET-Kill
+# VMP.NET-Kill V2.0 (VMP 1213-1261)
 
 ###### Guys, please read the README on github before you ask questions.
-# This method will only work when you have already UNPACKED the Assembly. If the Assembly is packaged, it is pointless to try this method bypassing!
+- [x] Remove mutations. For using, need unpack vmp anti-tamper. Tools: https://yadi.sk/d/OXEqQ_3UfcVLag (thank you wwh1004! https://github.com/wwh1004) WARNING: NEED USE, WHEN ALL METHODBODY != NULL(delete this methods after successfull unpacking)
+- [x] Bypass anti virtual-machine (old build)
+- [x] Bypass anti-debugging
+- [x] Bypass CRC
+- [x] Import Protection (new)
+- [x] Unpacking. Tools: https://yadi.sk/d/DtpNdfpIOj_cZQ (thank you codecracker! https://github.com/CodeCrackerSND) or KSDumper - https://github.com/EquiFox/KsDumper
 
-This program allows you to bypass CRC checking and anti-debugging. (VMProtect v3.5 build 1213)
 
-# The first-file must be named: "vmp.exe" (orig CRC-file checksum)(and don't delete it!)
 
-Fix CRC-checking (Token: 0x0600008B - Not always, there may be a different token. !You can find GClass7 - 99%!):
-```csharp
-public uint method_0(IntPtr intptr_0, uint uint_1)
-    {
-        uint num = 0U;
-        int num2 = 0;
-        while ((long)num2 < (long)((ulong)uint_1))
-        {
-            num = (GClass7.uint_0[(int)(((uint)Marshal.ReadByte(new IntPtr(intptr_0.ToInt64() + (long)num2)) ^ num) & 255U)] ^ num >> 8);
-            num2++;
-        }
-        return ~num;
-    }
-```
+Instructions:
+1) Use tools SMD, for unpacking vmp, or KSDumper
+2) use demutator from wwh
+3) use vmp.net-killer
 
 https://yougame.biz/threads/166893/ - guide on RU lang
 
-https://www.sendspace.com/file/a7yptr - tools
-
-### https://youtu.be/zvoY0UOsceM - video-guide
+### https://youtu.be/cMw0B6I5uL0 - video-guide UPDATE
